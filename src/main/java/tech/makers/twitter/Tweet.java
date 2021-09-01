@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.Clock;
+import java.time.LocalDateTime;
 
 // This is a Spring Entity.
 // It represents a Model in MVC.
@@ -15,11 +17,18 @@ public class Tweet {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String body;
+    private LocalDateTime createdAt;
 
     protected Tweet() {}
 
     public Tweet(String body) {
         this.body = body;
+        this.createdAt = LocalDateTime.now(Clock.systemUTC());
+    }
+
+    public Tweet(String body, Clock clock) {
+        this.body = body;
+        this.createdAt = LocalDateTime.now(clock);
     }
 
     @Override
@@ -28,10 +37,12 @@ public class Tweet {
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public String getBody() {
-        return body;
+        return this.body;
     }
+
+    public LocalDateTime getDate() { return this.createdAt; }
 }
