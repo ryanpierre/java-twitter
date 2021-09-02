@@ -36,6 +36,9 @@ public class TweetsController {
         // This `ModelAttribute` is actually an instance of our entity Tweet.
         // Auto-constructed for us based on the parameters in the POST request.
         // So we just need to save it!
+        System.out.println(tweet.getBody());
+        System.out.println(tweet.getCreatedAt());
+
         tweetRepository.save(tweet);
         return "redirect:/";
         // This is a special string that means 'redirect me to:' and then we give

@@ -13,7 +13,7 @@ public class TweetTest {
 
     @BeforeEach
     void setup() {
-        String instantExpected = "2021-01-01T00:00:00Z";
+        String instantExpected = "2021-01-01T01:00:00Z";
         ZoneId zoneId = ZoneId.systemDefault();
         mockClock = Clock.fixed(Instant.parse(instantExpected), zoneId);
     }
@@ -23,7 +23,8 @@ public class TweetTest {
         Tweet subject = new Tweet("Hello, world!", mockClock);
         assertEquals("Hello, world!", subject.getBody());
         assertNull(subject.getId());
-        assertEquals(LocalDateTime.now(mockClock), subject.getDate());
+        assertEquals(LocalDateTime.now(mockClock), subject.getCreatedAt());
+
     }
 
     @Test

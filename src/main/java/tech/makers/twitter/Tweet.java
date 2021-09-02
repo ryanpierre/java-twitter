@@ -1,9 +1,8 @@
 package tech.makers.twitter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.ReadOnlyProperty;
+
+import javax.persistence.*;
 import java.time.Clock;
 import java.time.LocalDateTime;
 
@@ -14,16 +13,20 @@ import java.time.LocalDateTime;
 public class Tweet {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name="body", length=140)
     private String body;
+
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP")
     private LocalDateTime createdAt;
 
     protected Tweet() {}
 
     public Tweet(String body) {
         this.body = body;
-        this.createdAt = LocalDateTime.now(Clock.systemUTC());
+        this.createdAt = LocalDateTime.now( Clock.systemUTC() );
     }
 
     public Tweet(String body, Clock clock) {
@@ -44,5 +47,5 @@ public class Tweet {
         return this.body;
     }
 
-    public LocalDateTime getDate() { return this.createdAt; }
+    public LocalDateTime getCreatedAt() { return this.createdAt; }
 }
