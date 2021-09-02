@@ -13,7 +13,6 @@ public class ClockService implements IClockService {
     }
 
     public Clock getClock() {
-        System.out.println("CALLING THE REAL");
         return this.clock;
     }
 }

@@ -8,9 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-// This is a Spring Entity.
-// It represents a Model in MVC.
-// And each instance, when saved, will refer to a row in the 'tweet' table in the database.
 @Entity
 public class Tweet {
 
