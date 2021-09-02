@@ -14,7 +14,6 @@
         <!--         ^^^^^^^^^^^^^^^^^^^^^^ This tells Thymeleaf to submit the form to /tweets -->
         <input type="text" id="tweet-form-body" th:field="*{body}">
         <!--                                    ^^^^^^^^^^^^^^^^^^ This references the `body` field of `newTweet`  -->
-        <input type="hidden" id="tweet-form-createdAt" th:field="*{createdAt}"/>
         <input type="submit" id="tweet-form-submit" value="Post">
         <!--                 ^^^^^^^^^^^^^^^^^^^^^^ These IDs are here so the tests know what to look for -->
     </form>
