@@ -3,14 +3,14 @@ package tech.makers.twitter;
 public class TweetForm {
     private String body;
 
-    public String getBody() {
-        return this.body;
-    }
-
     protected TweetForm() {}
 
     public TweetForm(String body) {
         this.body = body;
+    }
+
+    public String getBody() {
+        return this.body;
     }
 
     public void setBody(String body) {
